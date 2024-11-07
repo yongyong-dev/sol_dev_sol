@@ -253,3 +253,8 @@ body {
   #tableView th {
     background-color: #f2f2f2;
   }
+
+  #app {
+    display: flex;
+    transition: all 0.3s ease;
+  }
