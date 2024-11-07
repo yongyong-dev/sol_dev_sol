@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solution Development Solution</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solution Development Solution</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <!-- 전체 레이아웃을 감싸는 컨테이너 -->
+  <div class="container">
+    <!-- 사이드바 -->
     <nav class="sidebar locked">
       <div class="logo_items flex">
         <span class="nav_image">
           <img src="images/icon.png" alt="logo_img" />
         </span>
         <span class="logo_name">SolDevSol</span>
-        <img src="assets/bx-menu.svg" id="lock-icon" title="Unlock Sidebar">
+        <img src="assets/bx-menu.svg" id="lock-icon" title="Unlock Sidebar" />
         <i class="bx bx-x" id="sidebar-close"></i>
       </div>
 
+      <!-- 메뉴 항목들 -->
       <div class="menu_container">
         <div class="menu_items">
           <ul class="menu_item">
@@ -27,14 +31,14 @@
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="#" class="link flex">
-                <img src="assets/bx-home-alt.svg">
+              <a href="#" class="link flex" onclick="loadPage('overview')">
+                <img src="assets/bx-home-alt.svg" />
                 <span>Overview</span>
               </a>
             </li>
             <li class="item">
-              <a href="#" class="link flex">
-                <img src="assets/bx-grid-alt.svg">
+              <a href="#" class="link flex" onclick="loadPage('allproject')">
+                <img src="assets/bx-grid-alt.svg" />
                 <span>All Projects</span>
               </a>
             </li>
@@ -46,21 +50,40 @@
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="#" class="link flex">
-                <img src="assets/bxs-magic-wand.svg">
+              <a href="#" class="link flex" onclick="loadPage('magicdebugger')">
+                <img src="assets/bxs-magic-wand.svg" />
                 <span>Magic Debugger</span>
               </a>
             </li>
             <li class="item">
-              <a href="#" class="link flex">
-                <img src="assets/bx-text.svg">
+              <a href="#" class="link flex" onclick="loadPage('traceviewer')">
+                <img src="assets/bx-text.svg" />
                 <span>Trace Viewer</span>
               </a>
             </li>
             <li class="item">
-              <a href="#" class="link flex">
-                <img src="assets/bx-purchase-tag.svg">
+              <a href="#" class="link flex" onclick="loadPage('viewbytag')">
+                <img src="assets/bx-purchase-tag.svg" />
                 <span>View By Tag</span>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="menu_item">
+            <div class="menu_title flex">
+              <span class="title">SFR</span>
+              <span class="line"></span>
+            </div>
+            <li class="item">
+              <a href="#" class="link flex" onclick="loadPage('edittable')">
+                <img src="assets/bx-table.svg" />
+                <span>Edit Table</span>
+              </a>
+            </li>
+            <li class="item">
+              <a href="#" class="link flex" onclick="loadPage('export')">
+                <img src="assets/bx-export.svg" />
+                <span>Export</span>
               </a>
             </li>
           </ul>
@@ -71,14 +94,14 @@
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="#" class="link flex">
-                <img src="assets/bx-send.svg">
+              <a href="#" class="link flex" onclick="loadPage('reportbug')">
+                <img src="assets/bx-send.svg" />
                 <span>Report Bug</span>
               </a>
             </li>
             <li class="item">
-              <a href="#" class="link flex">
-                <img src="assets/bx-cog.svg">
+              <a href="#" class="link flex" onclick="loadPage('setting')">
+                <img src="assets/bx-cog.svg" />
                 <span>Setting</span>
               </a>
             </li>
@@ -97,9 +120,16 @@
       </div>
     </nav>
 
-    <!-- Navbar -->
-    <nav class="navbar flex">
-      <i class="bx bx-menu" id="sidebar-open"></i>
-    </nav>
-  </body>
+    <!-- 메인 컨텐츠 영역 -->
+    <div class="main-content">
+      <!-- Navbar -->
+      <nav class="navbar flex">
+        <img src="assets/bx-menu.svg" id="sidebar-open"/>
+      </nav>
+      <div id="content-area">
+        <!-- components 안의 항목들이 여기에 로드됨 -->
+      </div>
+    </div>
+  </div>
+</body>
 </html>

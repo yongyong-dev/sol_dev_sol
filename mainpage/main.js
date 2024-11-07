@@ -1,4 +1,6 @@
-// Selecting the sidebar and buttons
+// Main Page
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// 사이드바
 const sidebar = document.querySelector(".sidebar");
 const sidebarOpenBtn = document.querySelector("#sidebar-open");
 const sidebarCloseBtn = document.querySelector("#sidebar-close");
@@ -43,3 +45,24 @@ sidebar.addEventListener("mouseleave", hideSidebar);
 sidebar.addEventListener("mouseenter", showSidebar);
 sidebarOpenBtn.addEventListener("click", toggleSidebar);
 sidebarCloseBtn.addEventListener("click", toggleSidebar);
+
+document.getElementById('toggleButton').onclick = function () {
+    document.getElementById('app').classList.toggle('hidden');
+  };
+
+  function loadPage(pageName) {
+    fetch(`components/${pageName}.html`)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('content-area').innerHTML = data;
+        const script = document.createElement('script');
+        script.src = `components/${pageName}.js`;
+        document.body.appendChild(script);
+      })
+      .catch(error => console.error(`Error loading page: ${error}`));
+  }
+
+// Load 'overview' page by default
+window.onload = function () {
+    loadPage('overview');
+  };
